@@ -10,6 +10,10 @@ struct Nodo {
 
 Nodo* invertir(Nodo* raiz) {
     // TODO: Implementa tu lógica aquí
+    if (raiz == nullptr) return nullptr;
+    Nodo* temp = raiz->izquierdo;
+    raiz->izquierdo = invertir(raiz->derecho);
+    raiz->derecho = invertir(temp);
     return raiz;
 }
 
